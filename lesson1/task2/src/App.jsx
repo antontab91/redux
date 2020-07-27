@@ -1,31 +1,28 @@
-import React, { Component } from "react";
-import Header from "./Header";
-import { UserContext, user } from "./user-context";
-import Anton from "./my/Anton";
-import { myContext, myName } from "./my/my-context";
+import React, { Component } from 'react';
+import Header from './Header';
+import {UserContext} from './context';
 
-class App extends Component {
-  state = {
-    userData: user,
-    fullName: myName,
-  };
+class App extends Component {  
+    constructor(props) {
+        super(props);
+        this.state = {
+            userData: {
+                name: 'Nikola Tesla',
+                avatar_url: 'https://avatars3.githubusercontent.com/u10001',
+            }
+        }
 
-  render() {
-    return (
-      <>
-        <UserContext.Provider value={this.state}>
-          <Header />
-        </UserContext.Provider>
-        <myContext.Provider value={this.state}>
-          <Anton />
-        </myContext.Provider>
-      </>
-    );
-  }
+    }
+
+    render() {
+        
+        return (
+            <UserContext.Provider value={this.state.userData}>
+                <Header />
+            </UserContext.Provider>
+        );
+    }
+    
 }
 
 export default App;
-
-//1.Передаем в state данные для контекста (myName) -state = {fullName: myName};
-// 2.Заворачиваем нужную компоненту в Provider поставив перед ним контекст(myContext) - myContext.Provider.
-//3. В Provider передаем данные из state - value={this.state}

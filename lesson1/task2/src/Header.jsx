@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import UserMenu from "./UserMenu";
+import React from 'react';
+import UserMenu from './UserMenu';
 
-class Header extends Component {
-  render() {
+const Header = () => {
     return (
-      <header className="header">
-        <UserMenu />
-      </header>
+        <header className="header">
+            <UserMenu />
+        </header>
     );
-  }
-}
+};
 
 export default Header;
