@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import { UserContext, user } from "./user-context";
-import Nik from "./my/Nik";
+import Anton from "./my/Anton";
 import { myContext, myName } from "./my/my-context";
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
           <Header />
         </UserContext.Provider>
         <myContext.Provider value={this.state}>
-          <Nik />
+          <Anton />
         </myContext.Provider>
       </>
     );

@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 
-export const myName = { firstName: "Nik", lastName: "Abramovych" };
+export const myName = { firstName: "Tony", lastName: "Abramovych" };
 export const myContext = React.createContext();
 
 //1.Создаем переменную с данными для контекста - экспорт
