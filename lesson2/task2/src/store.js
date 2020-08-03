@@ -39,6 +39,7 @@ const counterReducer = (state = initialState, action) => {
 
         history: state.history.concat("-1"),
       };
+
     case RESET:
       return {
         ...state,
