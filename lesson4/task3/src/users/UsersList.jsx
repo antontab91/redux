@@ -4,7 +4,7 @@ import Pagination from './Pagination';
 import { connect } from 'react-redux';
 import * as usersAction from './users.actions';
 
-const UsersList = ({users, currentPage, goNext, goPrev}) => {
+const UsersList = ({ users, currentPage, goNext, goPrev }) => {
     console.log(users)
     return (
         <div>
@@ -15,12 +15,12 @@ const UsersList = ({users, currentPage, goNext, goPrev}) => {
                 totalItems={users.length}
             />
             <ul className="users">
-                {users.slice(currentPage * 3, currentPage * 3 + 3).map((user) => 
+                {users.slice(currentPage * 3, currentPage * 3 + 3).map((user) =>
                     <User key={user.id} name={user.name} age={user.age} />
                 )}
             </ul>
         </div>
-    ); 
+    );
 };
 
 const mapState = state => {
@@ -39,3 +39,6 @@ const connector = connect(mapState, mapDispatch);
 const ConnectedUsers = connector(UsersList);
 
 export default ConnectedUsers;
+
+
+
