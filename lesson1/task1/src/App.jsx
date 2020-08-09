@@ -21,12 +21,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <ThemeContext.Provider value={this.state.theme}>
-        <div>
+      <div>
+        <ThemeContext.Provider value={this.state.theme}>
           <ThemedButton onClick={this.toggleTheme} >Dynamic Theme</ThemedButton>
-          <ThemedButton onClick={this.toggleTheme} >Default Theme</ThemedButton>
-        </div>
-      </ThemeContext.Provider>
+        </ThemeContext.Provider>
+        <ThemedButton onClick={this.toggleTheme} >Default Theme</ThemedButton>
+      </div>
     )
   }
 }
