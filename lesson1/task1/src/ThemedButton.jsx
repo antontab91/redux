@@ -1,5 +1,5 @@
-import React from 'react';
-import { ThemeContext } from './themes-context.js';
+import React from "react";
+import { ThemeContext } from "./themes-context";
 
 class ThemedButton extends React.Component {
   constructor(props) {
@@ -7,23 +7,21 @@ class ThemedButton extends React.Component {
   }
 
   render() {
-    console.log(this.context)
-    this.context;
     return (
       // <button className="btn">
       //   {this.props.children}
       // </button>
-      <button style={{
-        backgroundColor: this.context.background,
-        color: this.context.fontColor,
-      }}
-        {...this.props} className="btn">
-
-      </button>
-    )
+      <button
+        {...this.props}
+        style={{
+          backgroundColor: this.context.background,
+          color: this.context.fontColor,
+        }}
+        className="btn"
+      />
+    );
   }
 }
 
 ThemedButton.contextType = ThemeContext;
-
 export default ThemedButton;
