@@ -7,8 +7,8 @@ class App extends React.Component {
         super(props);
         this.state = {
             user: {
-                name: user.name,
-                avatar_url: user.avatar_url,
+                name: "Nikola Tesla",
+                avatar_url: "https://avatars3.githubusercontent.com/u10001"
             }
         }
 
