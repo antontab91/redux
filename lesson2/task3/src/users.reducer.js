@@ -21,7 +21,7 @@ export const userReducer = (state = initialState, action) => {
       return {
         usersList: updateList,
       }
-      default: 
+    default:
       return state;
   }
 }
