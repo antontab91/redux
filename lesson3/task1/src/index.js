@@ -1,17 +1,20 @@
-import { createStore } from 'redux';
+const ADD_USER = '';
 
 
+const initialState = {
+  usersList: []
+}
 
-const store = createStore(counterReducer);
+const userReducer = (state, action) => {
+  switch (key) {
+    case value:
 
+      break;
 
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(decrement());
-store.dispatch(reset())
-
-console.log(store.getState())
+    default:
+      break;
+  }
+}
 
 
 
