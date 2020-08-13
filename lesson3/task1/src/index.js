@@ -1,17 +1,18 @@
-import { createStore } from 'redux';
+import store from "./store";
+import { increment, decrement, reset } from "./counter.actions";
+import { addUser, deleteUser, updateUser } from "./users.actions";
 
+store.subscribe(() => console.log(store.getState()));
 
+store.dispatch(increment());
+store.dispatch(decrement());
+store.dispatch(increment());
+store.dispatch(increment());
+store.dispatch(reset());
 
-
-
-const store = createStore(userReducer);
-
-store.dispatch(addUser({ id: 76, name: 'Sarah' }))
-store.dispatch(addUser({ id: 72, name: 'Bublik' }))
-store.dispatch(addUser({ id: 71, name: 'Suchka' }))
-store.dispatch(deleteUser(76))
-store.dispatch(updateUser(71, { id: 72, name: 'Bublik' }))
-console.log(store.getState());
-
+store.dispatch(addUser({ id: 76, name: "Sarah" }));
+store.dispatch(addUser({ id: 2, name: "Bob" }));
+store.dispatch(updateUser(2, { name: "Tom" }));
+store.dispatch(deleteUser(76));
 
 

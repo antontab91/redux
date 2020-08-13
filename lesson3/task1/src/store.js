@@ -1,12 +1,21 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from "redux";
+import { counterReducer } from "./counter.reducer";
+import usersReducer from "./users.reducer";
 
 
-const store = createStore(counterReducer);
 
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(decrement());
-store.dispatch(reset())
+const appReducer = combineReducers({
+  counter: counterReducer,
+  users: usersReducer,
+});
 
-console.log(store.getState())
+const store = createStore(
+  appReducer /* preloadedState, */,
+  window.__REDUX_DEVTOOLS_EXTENSION__ &&
+  window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+export default store;
+
+
+
