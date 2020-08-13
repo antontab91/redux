@@ -1,4 +1,13 @@
-const ADD_USER = '';
+const ADD_USER = 'USERS/ADD_USER';
+const DELETE_USER = 'USERS/DELETE_USER';
+const UPDATE_USER = 'USERS/UPDATE_USER';
+
+const addUser = (user) => {
+  return {
+    type: ADD_USER,
+    payload: user,
+  }
+}
 
 
 const initialState = {
@@ -6,10 +15,22 @@ const initialState = {
 }
 
 const userReducer = (state, action) => {
-  switch (key) {
-    case value:
+  switch (action.type) {
+    case ADD_USER:
+      return {
 
-      break;
+      }
+
+    case DELETE_USER:
+      return {
+
+      }
+
+    case UPDATE_USER:
+      return {
+
+      }
+
 
     default:
       break;
