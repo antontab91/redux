@@ -7,86 +7,43 @@ const UPDATE_USER = 'USERS/UPDATE_USER';
 const addUser = (user) => {
   return {
     type: ADD_USER,
-    payload: { user },
+    payload: {
+      user: user,
+    },
   }
 }
 
-const deleteUser = (id) => {
+const deleteUSer = (id) => {
   return {
     type: DELETE_USER,
-    payload: { id }
+    payload: {
+      id: id
+    },
   }
 }
 
-const updateUser = (id, userData) => {
+updateUser = (id, userData){
   return {
     type: UPDATE_USER,
     payload: {
-      userData,
-      id
+      id: id,
+      userData: userData,
     }
   }
 }
 
 
-const initialState = {
-  usersList: []
-}
-
-const userReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_USER: {
-      return {
-        ...state,
-        usersList: state.usersList.concat(action.payload.user),
-      }
-    }
+const
 
 
-    case DELETE_USER: {
-      const newList = state.usersList.filter((user) => {
-        return user.id !== action.payload.id;
-      })
+// const store = createStore(userReducer);
 
-      return {
-        ...state,
-        usersList: newList,
-      }
-    }
-
-
-    case UPDATE_USER: {
-      const newList = state.usersList.map((user) => {
-        if (user.id === action.payload.id) {
-          return {
-            ...user,
-            ...action.payload.userData
-          }
-        }
-        return user;
-      })
-
-      return {
-        ...state,
-        usersList: newList,
-      }
-    }
-
-
-
-    default:
-      return state
-  }
-}
-
-const store = createStore(userReducer);
-
-store.dispatch(addUser({ id: 76, name: 'Sarah' }))
-store.dispatch(addUser({ id: 72, name: 'Bublik' }))
-store.dispatch(addUser({ id: 71, name: 'Suchka' }))
-store.dispatch(deleteUser(76))
-store.dispatch(updateUser(71, { id: 72, name: 'Bublik' }))
-console.log(store.getState());
+// store.dispatch(addUser({ id: 76, name: 'Sarah' }))
+// store.dispatch(addUser({ id: 72, name: 'Bublik' }))
+// store.dispatch(addUser({ id: 71, name: 'Suchka' }))
+// store.dispatch(deleteUser(76))
+// store.dispatch(updateUser(71, { id: 72, name: 'Bublik' }))
+// console.log(store.getState());
 
 
 
