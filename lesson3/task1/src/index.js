@@ -5,7 +5,24 @@ const UPDATE_USER = 'USERS/UPDATE_USER';
 const addUser = (user) => {
   return {
     type: ADD_USER,
-    payload: user,
+    payload: { user },
+  }
+}
+
+const deleteUser = (id) => {
+  return {
+    type: DELETE_USER,
+    payload: { id }
+  }
+}
+
+const updateUser = (user, id) => {
+  return {
+    type: UPDATE_USER,
+    payload: {
+      user,
+      id
+    }
   }
 }
 
@@ -14,16 +31,22 @@ const initialState = {
   usersList: []
 }
 
-const userReducer = (state, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_USER:
       return {
-
+        ...state,
+        usersList: state.usersList.concat(action.payload.user),
       }
 
     case DELETE_USER:
-      return {
+      const newList = state.usersList.filter((user) => {
+        return user.id !== action.payload.id;
+      })
 
+      return {
+        ...state,
+        usersList: newList,
       }
 
     case UPDATE_USER:
