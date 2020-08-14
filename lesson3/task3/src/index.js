@@ -1,5 +1,7 @@
-// import store from './store';
+import store from './store';
 // import { setLanguage } from './language.actions';
+import { addProduct, removeProduct } from './cart.actions';
+
 
 
 // store.subscribe(() => {
@@ -13,16 +15,18 @@
 
 // console.log(store.getState());
 
-const ADD_PRODUCT = 'TRASH/ADD_PRODUCT';
-const REMOVE_PRODUCT = 'TRASH/REMOVE_PRODUCT';
 
 
-const initialTrash = {
-  trashProducts: [],
-}
+// const store = createStore(cartReducer);
 
-const cartReducer = (state = initialTrash, action) => {
-  // switch (action.type) {
+store.subscribe(() => {
+  console.log(store.getState())
+})
 
-  // }
-}
+
+store.dispatch(addProduct({ id: 76, name: 'milk' }))
+store.dispatch(addProduct({ id: 55, name: 'meat' }))
+// store.dispatch(removeProduct(55))
+// store.dispatch(removeProduct(76))
+// store.dispatch(removeProduct(44))
+
