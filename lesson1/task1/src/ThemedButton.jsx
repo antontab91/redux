@@ -11,6 +11,7 @@ class ThemedButton extends React.Component {
       // <button className="btn">
       //   {this.props.children}
       // </button>
+
       <button
         {...this.props}
         style={{
