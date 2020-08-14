@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, REMOVE_PRODUCT } from './user.actions';
+import { ADD_PRODUCT, REMOVE_PRODUCT } from './cart.actions';
 
 export const initialTrash = {
   trashProducts: [],

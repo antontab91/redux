@@ -19,13 +19,13 @@ import { addProduct, removeProduct } from './cart.actions';
 
 // const store = createStore(cartReducer);
 
-store.subscribe(() => {
-  console.log(store.getState())
-})
+// store.subscribe(() => {
+//   console.log(store.getState())
+// })
 
 
-store.dispatch(addProduct({ id: 76, name: 'milk' }))
-store.dispatch(addProduct({ id: 55, name: 'meat' }))
+// store.dispatch(addProduct({ id: 76, name: 'milk' }))
+// store.dispatch(addProduct({ id: 55, name: 'meat' }))
 // store.dispatch(removeProduct(55))
 // store.dispatch(removeProduct(76))
 // store.dispatch(removeProduct(44))
