@@ -16,6 +16,7 @@
 const ADD_PRODUCT = 'TRASH/ADD_PRODUCT';
 const REMOVE_PRODUCT = 'TRASH/REMOVE_PRODUCT';
 
+
 const initialTrash = {
   trashProducts: [],
 }
