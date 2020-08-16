@@ -4,6 +4,8 @@ import { increment, decrement, reset } from './counter.actions';
 
 const store = createStore(counterReducer);
 
+export default store;
+
 store.subscribe(() => {
   console.log(store.getState());
 })

@@ -1,21 +1,40 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { increment, decrement, reset } from './counter.actions';
 
 
-const Counter = () => {
-  const [state, setState] = useState(0)
+const Counter = ({ counter, incr, decr, res }) => {
+
   return (
     <div className="counter">
-      <button onClick={() => { setState(state - 1) }} className="counter__button">
+      <button onClick={() => { decr() }} className="counter__button">
         -
     </button>
-      <span onClick={() => { setState(0) }} className="counter__value">
-        {state}
+      <span onClick={() => { res() }} className="counter__value">
+        {counter}
       </span>
-      <button onClick={() => { setState(state + 1) }} className="counter__button">
+      <button onClick={() => { incr() }} className="counter__button">
         +
     </button>
     </div>
   )
 }
 
-export default Counter;
+const mapState = (state) => {
+  return {
+    counter: state
+  }
+}
+
+const mapProps = (dispatch) => {
+  return {
+    incr: () => dispatch(increment()),
+    decr: () => dispatch(decrement()),
+    res: () => dispatch(reset()),
+  }
+}
+
+
+const connector = connect(mapState, mapProps);
+
+export default connector(Counter);
