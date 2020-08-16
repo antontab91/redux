@@ -8,7 +8,7 @@ const Counter = () => {
       <button onClick={() => { setState(state - 1) }} className="counter__button">
         -
     </button>
-      <span className="counter__value">
+      <span onClick={() => { setState(0) }} className="counter__value">
         {state}
       </span>
       <button onClick={() => { setState(state + 1) }} className="counter__button">
