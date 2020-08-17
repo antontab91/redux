@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Pagination = () => {
+const Pagination = ({ currentPage, goPrev, goNext }) => {
   return (
-    <div className="sd">ds</div>
+    <div className="pagination">
+      <button onClick={goPrev} className="btn">{"←"}</button>
+      <span className="pagination__page">{currentPage}</span>
+      <button onClick={goNext} className="btn">{"→"}</button>
+    </div>
   )
 }
 
