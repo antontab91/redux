@@ -5,7 +5,9 @@ import store from './store';
 
 const App = () => {
   return (
-    <Users />
+    <Provider>
+      <Users />
+    </Provider>
   )
 }
 

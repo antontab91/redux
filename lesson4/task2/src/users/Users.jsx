@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Users = () => {
   const usersList = [
@@ -37,4 +38,12 @@ const Users = () => {
   )
 }
 
-export default Users;
+const mapState = (state) => {
+  return {
+    users: state.counter.usersList,
+  }
+}
+
+const connectorUsers = connect(mapState)
+
+export default connectorUsers;
