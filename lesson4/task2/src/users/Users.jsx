@@ -1,19 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addUser, removeUser, updateUser } from './users.action'
 
-const Users = () => {
-  const usersList = [
-    { id: 89, name: 'Hop' },
-    { id: 84, name: 'Hop' },
-    { id: 81, name: 'Hop' },
-    { id: 88, name: 'Hop' }
-  ]
+const Users = (props) => {
+  const { users } = props;
 
   return (
     <div className="users">
       <button className="users__create-btn">Create user</button>
       <ul className="users__list">
-        {usersList.map((user) => {
+        {users.map((user) => {
           return (
             <li key={user.id} className="users__list-item">
               <span>User # 232286</span>
@@ -40,10 +36,17 @@ const Users = () => {
 
 const mapState = (state) => {
   return {
-    users: state.counter.usersList,
+    users: state.users.usersList,
   }
 }
 
-const connectorUsers = connect(mapState)
+const mapDispatch = (dispatch) => {
+  return {
+    createUser: dispatch(addUser())
+  }
+}
+
+const connector = connect(mapState, mapDispatch);
+const connectorUsers = connector(Users);
 
 export default connectorUsers;
