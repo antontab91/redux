@@ -1,52 +1,48 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { addUser, removeUser, updateUser } from './users.action'
+import React from "react";
+import { connect } from "react-redux";
+import * as userActions from "./users.action";
 
-const Users = (props) => {
-  const { users } = props;
-
+const Users = ({ users, deleteUser, createUser }) => {
+  const onUserCreate = () => {
+    const id = Math.round(Math.random() * 100000);
+    const newUser = {
+      id,
+      name: `User #${id}`,
+    };
+    createUser(newUser);
+  };
   return (
     <div className="users">
-      <button className="users__create-btn">Create user</button>
+      <button className="users__create-btn" onClick={onUserCreate}>
+        Create User
+      </button>
       <ul className="users__list">
-        {users.map((user) => {
-          return (
-            <li key={user.id} className="users__list-item">
-              <span>User # 232286</span>
-              <button className="users__delete-btn">+</button>
-            </li>
-          )
-        })}
-        {/* <li className="users__list-item">
-          <span>User # 232286</span>
-          <button className="users__delete-btn">+</button>
-        </li>
-        <li className="users__list-item">
-          <span>User # 551949</span>
-          <button className="users__delete-btn">+</button>
-        </li>
-        <li className="users__list-item">
-          <span>User # 328468</span>
-          <button className="users__delete-btn">+</button>
-        </li> */}
+        {users.map((user) => (
+          <li className="users__list-item" key={user.id}>
+            {user.name}
+            <button
+              className="users__delete-btn"
+              onClick={() => deleteUser(user.id)}
+            >
+              +
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 const mapState = (state) => {
   return {
     users: state.users.usersList,
-  }
-}
-
-const mapDispatch = (dispatch) => {
-  return {
-    createUser: dispatch(addUser())
-  }
-}
-
+  };
+};
+const mapDispatch = {
+  createUser: userActions.addUser,
+  deleteUser: userActions.removeUser,
+};
 const connector = connect(mapState, mapDispatch);
-const connectorUsers = connector(Users);
+const connectedUsers = connector(Users);
 
-export default connectorUsers;
+export default connectedUsers;
