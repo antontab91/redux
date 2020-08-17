@@ -49,9 +49,11 @@ const mapState = state => {
 //   createUser: addUser,
 //   deleteUser: removeUser,
 // };
-const mapDispatch = {
-  createUser: addUser,
-  deleteUser: removeUser,
+const mapDispatch = (dispatch) => {
+  return {
+    createUser: (user) => dispatch(addUser(user)),
+    deleteUser: (id) => dispatch(removeUser(id)),
+  }
 };
 
 const connector = connect(mapState, mapDispatch);
