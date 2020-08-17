@@ -1,48 +1,61 @@
-import React from "react";
-import { connect } from "react-redux";
-import * as userActions from "./users.action";
+import React from 'react';
+import { connect } from 'react-redux';
+import { addUser, removeUser } from './users.action'
 
-const Users = ({ users, deleteUser, createUser }) => {
-  const onUserCreate = () => {
+const Users = ({ users, createUser, deleteUser }) => {
+
+  const onCreateUser = () => {
     const id = Math.round(Math.random() * 100000);
     const newUser = {
       id,
-      name: `User #${id}`,
-    };
-    createUser(newUser);
-  };
+      name: "User",
+    }
+    createUser(newUser)
+  }
+
   return (
     <div className="users">
-      <button className="users__create-btn" onClick={onUserCreate}>
-        Create User
-      </button>
+      <button onClick={onCreateUser} className="users__create-btn">Create user</button>
       <ul className="users__list">
-        {users.map((user) => (
-          <li className="users__list-item" key={user.id}>
-            {user.name}
-            <button
-              className="users__delete-btn"
-              onClick={() => deleteUser(user.id)}
-            >
-              +
+        {
+          users.map((user) => {
+            return (
+              <li className="users__list-item" key={user.id}>
+                <span>{`${user.name} # ${user.id}`}</span>
+                <button
+                  className="users__delete-btn"
+                  onClick={() => deleteUser(user.id)}
+                >
+                  +
             </button>
-          </li>
-        ))}
+              </li>
+            )
+          })
+        }
       </ul>
     </div>
-  );
-};
+  )
+}
 
-const mapState = (state) => {
+
+
+const mapState = state => {
   return {
     users: state.users.usersList,
-  };
-};
+  }
+}
+
+// const mapDispatch = {
+//   createUser: addUser,
+//   deleteUser: removeUser,
+// };
 const mapDispatch = {
-  createUser: userActions.addUser,
-  deleteUser: userActions.removeUser,
+  createUser: addUser,
+  deleteUser: removeUser,
 };
+
 const connector = connect(mapState, mapDispatch);
 const connectedUsers = connector(Users);
 
 export default connectedUsers;
+
