@@ -15,7 +15,7 @@ const Users = ({ users, createUser, deleteUser }) => {
 
   return (
     <div className="users">
-      <button onClick={onCreateUser} className="users__create-btn">Create user</button>
+      <button onClick={() => onCreateUser()} className="users__create-btn">Create user</button>
       <ul className="users__list">
         {
           users.map((user) => {
