@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import UsersList from './users/UsersList';
-// import store from './store';
+import store from './store';
 
 const users = [
     {
@@ -63,8 +63,9 @@ const users = [
 
 const App = () => {
     return (
-
-        <UsersList users={users} />
+        <Provider store={store}>
+            <UsersList users={users} />
+        </Provider>
 
     );
 };

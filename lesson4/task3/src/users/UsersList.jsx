@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Pagination from './Pagination';
 import User from './User';
+import { connect } from 'react-redux';
 
 // это в этой компонетнте я конкечусь к стору 
 
@@ -43,6 +44,16 @@ const UsersList = ({ users }) => {
     </div>
   )
 }
+
+const mapState = state => {
+  return {
+    users: state.usersList,
+    currentPage: state.currentPage,
+  }
+};
+const mapDispatch;
+
+const connector = connect(mapState, mapDispatch);
 
 export default UsersList
 
