@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import store from '../../../task2/src/store';
+
 
 const GO_PREV = 'USERS/GO_PREV';
 const GO_NEXT = 'USERS/GO_NEXT';
@@ -75,7 +75,7 @@ const users = [
 ];
 
 
-initialState = {
+const initialState = {
   usersList: users,
   currentPage: 0
 }
@@ -101,7 +101,7 @@ const userReducer = (state = initialState, action) => {
   }
 }
 
-const state = createStore(userReducer);
+const store = createStore(userReducer);
 
 store.subscribe(() => {
   console.log(store.getState());
