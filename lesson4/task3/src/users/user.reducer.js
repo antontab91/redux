@@ -1,7 +1,4 @@
-import { createStore } from 'redux';
-
-
-
+import { GO_NEXT, GO_PREV } from './user.actions';
 
 const users = [
   {
@@ -88,15 +85,4 @@ const userReducer = (state = initialState, action) => {
   }
 }
 
-const store = createStore(userReducer);
-
-store.subscribe(() => {
-  console.log(store.getState());
-})
-
-
-store.dispatch(goPrev())
-store.dispatch(goPrev())
-store.dispatch(goPrev())
-store.dispatch(goPrev())
-store.dispatch(goNext())
+export default userReducer;
