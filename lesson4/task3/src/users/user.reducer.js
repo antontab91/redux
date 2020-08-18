@@ -1,4 +1,5 @@
-import { } from 'react-redux';
+import { createStore } from 'redux';
+import store from '../../../task2/src/store';
 
 const GO_PREV = 'USERS/GO_PREV';
 const GO_NEXT = 'USERS/GO_NEXT';
@@ -81,6 +82,27 @@ initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GO_NEXT: {
+      return {
+        ...state,
+        currentPage: state.currentPage + 1,
+      }
+    }
 
+    case GO_PREV: {
+      return {
+        ...state,
+        currentPage: state.currentPage - 1,
+      }
+    }
+
+    default:
+      return state
   }
 }
+
+const state = createStore(userReducer);
+
+store.subscribe(() => {
+  console.log(store.getState());
+})
