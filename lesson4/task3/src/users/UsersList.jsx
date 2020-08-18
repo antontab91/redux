@@ -1,26 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Pagination from './Pagination';
 import User from './User';
 import { connect } from 'react-redux';
+import { goNext, goPrev } from './user.actions';
 
-// это в этой компонетнте я конкечусь к стору 
-
-const UsersList = ({ users }) => {
-  const [currentPage, setPage] = useState(0);
+const UsersList = ({ users, currentPage, goNext, goPrev }) => {
 
   const itemsPerPage = 3;
   const totalItems = users.length
-  const goPrev = () => {
-    setPage(currentPage - 1)
-  }
-  const goNext = () => {
-    setPage(currentPage + 1)
-  }
-
   const firstIndexOnCurrentPage = currentPage * itemsPerPage; //0*3 = 0 первый индекс на первой странице, 1*3 =3 первый индекс на второй странице ... и тд . и так на каждой текущей странице 
   const lastIndexOnCurrentPage = firstIndexOnCurrentPage + 3; // +3 к каждому первому индексу = последний индекс текущей страницы 
-
-
 
   return (
     <div>
@@ -51,9 +40,20 @@ const mapState = state => {
     currentPage: state.currentPage,
   }
 };
-const mapDispatch;
+const mapDispatch = (dispatch) => {
+  return {
+    goNext: () => { dispatch(goNext()) },
+    goPrev: () => { dispatch(goPrev()) }
+  }
+};
+
+// const mapDispatch = {
+//   goNext,
+//   goPrev
+// };
 
 const connector = connect(mapState, mapDispatch);
+const ConnectedUsers = connector(UsersList);
 
-export default UsersList
+export default ConnectedUsers;
 
