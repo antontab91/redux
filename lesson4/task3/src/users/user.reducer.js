@@ -106,3 +106,10 @@ const state = createStore(userReducer);
 store.subscribe(() => {
   console.log(store.getState());
 })
+
+
+store.dispatch(goPrev())
+store.dispatch(goPrev())
+store.dispatch(goPrev())
+store.dispatch(goPrev())
+store.dispatch(goNext())
