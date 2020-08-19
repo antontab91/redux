@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Oprion = ({ title, options, moveOption }) => {
+const Options = ({ title, options, moveOption }) => {
   return (
     <div className="options">
       <div className="options__title">Available options</div>
@@ -15,4 +15,4 @@ const Oprion = ({ title, options, moveOption }) => {
   )
 }
 
-export default Option;
+export default Options;
