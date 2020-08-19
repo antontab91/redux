@@ -3,7 +3,7 @@ import Options from './Options';
 
 const TransferList = () => {
   return (
-    <Options />
+    <Options title={'hui'} />
   )
 }
 
