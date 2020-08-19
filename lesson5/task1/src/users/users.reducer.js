@@ -1,19 +1,79 @@
+import { createStore } from 'redux';
+
 const NEXT_PAGE = 'PAGINATION/NEXT_PAGE';
 const PREV_PAGE = 'PAGINATION/PREV_PAGE';
 
 const goNext = () => {
   return {
-    type: NEXT_PAGE;
+    type: NEXT_PAGE,
   }
 }
 
 const goPrev = () => {
   return {
-    type: PREV_PAGE;
+    type: PREV_PAGE,
   }
 }
 
-initialState = {
+const users = [
+  {
+    id: 'id-0',
+    age: 21,
+    name: 'Bob',
+  },
+  {
+    id: 'id-1',
+    age: 17,
+    name: 'Tom',
+  },
+  {
+    id: 'id-2',
+    age: 18,
+    name: 'Tad',
+  },
+  {
+    id: 'id-3',
+    age: 45,
+    name: 'Justin',
+  },
+  {
+    id: 'id-4',
+    age: 45,
+    name: 'Franklin',
+  },
+  {
+    id: 'id-5',
+    age: 45,
+    name: 'John',
+  },
+  {
+    id: 'id-6',
+    age: 45,
+    name: 'Andrew',
+  },
+  {
+    id: 'id-7',
+    age: 45,
+    name: 'Pol',
+  },
+  {
+    id: 'id-8',
+    age: 45,
+    name: 'Ron',
+  },
+  {
+    id: 'id-9',
+    age: 45,
+    name: 'Harry',
+  },
+  {
+    id: 'id-10',
+    age: 45,
+    name: 'Anna',
+  },
+];
+
+const initialState = {
   users: {
     usersList: users,
   },
@@ -21,20 +81,20 @@ initialState = {
   currentPage: 0
 }
 
-const usersReducer = (state, action) => {
+const usersReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case NEXT_PAGE: {
       return {
         ...state,
-        currentPage: currentPage + 1;
+        currentPage: currentPage + 1,
       }
     }
 
     case PREV_PAGE: {
       return {
         ...state,
-        currentPage: currentPage + 1;
+        currentPage: currentPage + 1,
       }
     }
 
@@ -43,3 +103,12 @@ const usersReducer = (state, action) => {
       return state;
   }
 }
+
+const store = createStore(usersReducer);
+
+store.subscribe(() => {
+  console.log(store.getState());
+})
+
+store.dispatch(goPrev());
+store.dispatch(goNext());

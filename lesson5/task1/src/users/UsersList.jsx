@@ -5,8 +5,7 @@ const UsersList = ({ users }) => {
   return (
 
     <div>
-
-      <ul class="users">
+      <ul className="users">
         <User />
       </ul>
     </div>
