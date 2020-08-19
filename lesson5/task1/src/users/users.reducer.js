@@ -1,19 +1,4 @@
-import { createStore } from 'redux';
-
-const NEXT_PAGE = 'PAGINATION/NEXT_PAGE';
-const PREV_PAGE = 'PAGINATION/PREV_PAGE';
-
-const goNext = () => {
-  return {
-    type: NEXT_PAGE,
-  }
-}
-
-const goPrev = () => {
-  return {
-    type: PREV_PAGE,
-  }
-}
+import { NEXT_PAGE, PREV_PAGE } from './user.actions';
 
 const users = [
   {
@@ -78,7 +63,7 @@ const initialState = {
     usersList: users,
   },
 
-  currentPage: 0
+  currentPage: 0,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -87,14 +72,14 @@ const usersReducer = (state = initialState, action) => {
     case NEXT_PAGE: {
       return {
         ...state,
-        currentPage: currentPage + 1,
+        currentPage: state.currentPage + 1,
       }
     }
 
     case PREV_PAGE: {
       return {
         ...state,
-        currentPage: currentPage + 1,
+        currentPage: state.currentPage - 1,
       }
     }
 
@@ -104,11 +89,4 @@ const usersReducer = (state = initialState, action) => {
   }
 }
 
-const store = createStore(usersReducer);
-
-store.subscribe(() => {
-  console.log(store.getState());
-})
-
-store.dispatch(goPrev());
-store.dispatch(goNext());
+export default usersReducer;
