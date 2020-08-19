@@ -1,17 +1,5 @@
 import { createStore } from 'redux';
 
-const TOGGLE_OPTIONS
-  = 'OPTIONS/TOGGLE_OPTIONS
-';
-
-const toggleOption = (id) => {
-  return {
-    type: TOGGLE_OPTIONS,
-    payload: {
-      id
-    }
-  }
-}
 
 
 const options = [
