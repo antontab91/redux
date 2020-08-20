@@ -8,7 +8,7 @@ const Options = ({ title, options, moveOption }) => {
       <ul className="options__list">
         {options.map((option) => {
           return <li key={option.id}>
-            <button className="options__list-item">{option.name}</button>
+            <button className="options__list-item" onClick={() => moveOption(option.id)}>{option.name}</button>
           </li>
         })}
       </ul>

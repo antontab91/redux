@@ -1,3 +1,5 @@
+import { TOGGLE_OPTIONS } from './options.actions';
+
 const options = [
   {
     id: 'id-0',
@@ -31,12 +33,27 @@ const options = [
 
 const initialState = {
   optionsList: options,
-  selected: [],
+  selected: ['id-6'],
 }
 
 
 const optionsReducer = (state = initialState, action) => {
   switch (action.type) {
+
+    case TOGGLE_OPTIONS: {
+
+      const newSelected = state.selected.includes(action.payload.optionId)
+        ? state.selected.filter(id => id !== action.payload.optionId)
+        : state.selected.concat(action.payload.optionId)
+
+      console.log(state.selected)
+
+      return {
+        ...state,
+        selected: newSelected,
+      }
+    }
+
     default:
       return state;
   }
