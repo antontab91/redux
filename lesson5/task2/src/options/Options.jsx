@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { optionsSelectors } from './options.selectors';
+
 
 const Options = ({ title, options, moveOption }) => {
   return (
@@ -17,15 +16,6 @@ const Options = ({ title, options, moveOption }) => {
   )
 }
 
-const mapState = state => {
-  return {
-    options: optionsSelectors(state),
-  }
-}
 
 
-
-const connector = connect(mapState);
-const connectedOptions = connector(Options)
-
-export default connectedOptions;
+export default Options;
