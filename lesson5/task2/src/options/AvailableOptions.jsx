@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { optionsSelectors } from './options.selectors';
+import { availableOptionsSelectors } from './options.selectors';
 import Options from './Options';
 
 const mapState = state => {
   return {
-    options: optionsSelectors(state),
+    options: availableOptionsSelectors(state),
   }
 }
 
