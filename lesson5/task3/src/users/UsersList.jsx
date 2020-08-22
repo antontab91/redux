@@ -3,11 +3,17 @@ import User from './User';
 import { connect } from 'react-redux';
 import store from '../store';
 
-const UsersList = () => {
+const UsersList = ({ usersList }) => {
   return (
 
     <ul className="users">
-      <User />
+      {
+        usersList.map((user) => {
+          return (
+            <User key={user.id} name={user.name} age={user.age} />
+          )
+        })
+      }
     </ul>
   )
 }

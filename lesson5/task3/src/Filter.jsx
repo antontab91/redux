@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { handleChange } from './users/users.reducer';
+import { handleChange } from './users/users.actions';
 
 const Filter = ({ filterText, onChange, count }) => {
 
