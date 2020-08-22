@@ -1,8 +1,13 @@
 import React from 'react';
+import UsersList from './users/UsersList'
+import { Provider } from 'react-redux';
+import store from './store';
 
 const App = () => {
   return (
-    <div className="sdd">dsds</div>
+    <Provider store={store}>
+      <UsersList />
+    </Provider>
   )
 }
 
