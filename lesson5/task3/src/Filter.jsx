@@ -1,12 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Filter = () => {
+const Filter = ({ filterText }) => {
   return (
     <div className="filter">
       <span className="filter__count">5</span>
-      <input type="text" className="filter__input" value="a" />
+      <input type="text" className="filter__input" value={filterText} />
     </div>
   )
 }
 
-export default Filter;
+const mapState = (state) => {
+  return {
+    filterText: state.users.filterText,
+    usersList: state.users.UsersList,
+  }
+}
+
+const connector = connect(mapState);
+const connectedFiler = connector(Filter);
+
+export default connectedFiler;
