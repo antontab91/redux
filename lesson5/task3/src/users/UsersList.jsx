@@ -1,7 +1,7 @@
 import React from 'react';
 import User from './User';
 import { connect } from 'react-redux';
-import store from '../store';
+import { usersSelectors } from './users.selectors';
 
 const UsersList = ({ usersList }) => {
   return (
@@ -21,7 +21,7 @@ const UsersList = ({ usersList }) => {
 const mapState = (state) => {
   return {
     filterText: state.users.filterText,
-    usersList: state.users.usersList,
+    usersList: usersSelectors(state),
   }
 }
 

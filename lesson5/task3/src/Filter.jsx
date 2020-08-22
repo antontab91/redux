@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { handleChange } from './users/users.actions';
+import { usersSelectors } from './users/users.selectors';
 
 const Filter = ({ filterText, onChange, count }) => {
 
@@ -16,8 +17,8 @@ const mapState = (state) => {
 
   return {
     filterText: state.users.filterText,
-    usersList: state.users.usersList,
-    count: state.users.usersList.length,
+    usersList: usersSelectors(state),
+    count: usersSelectors(state).length,
   }
 }
 

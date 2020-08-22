@@ -1,8 +1,8 @@
-const usersSelectors = state => {
+export const usersSelectors = state => {
   const filterText = state.users.filterText;
   const usersList = state.users.usersList;
 
-  return usersList.filter((el) => {
-    return el.includes(filterText)
+  return usersList.filter((user) => {
+    return user.name.toLowerCase().includes(filterText.toLowerCase());
   })
 }
