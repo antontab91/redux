@@ -1,4 +1,11 @@
-import { createStore } from 'redux';
+const HANDLE_CHANGE = 'USERS/HANDLE_CHANGE';
+
+export const handleChange = (event) => {
+  return {
+    type: HANDLE_CHANGE,
+    payload: event.target.value,
+  }
+}
 
 const users = [
   {
@@ -65,6 +72,12 @@ const initialState = {
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
+    case HANDLE_CHANGE: {
+      return {
+        ...state,
+        filterText: action.payload,
+      }
+    }
 
     default: return state;
   }

@@ -15,7 +15,7 @@ const UsersList = () => {
 const mapState = (state) => {
   return {
     filterText: state.users.filterText,
-    usersList: state.users.UsersList,
+    usersList: state.users.usersList,
   }
 }
 

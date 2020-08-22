@@ -1,23 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { handleChange } from './users/users.reducer';
 
-const Filter = ({ filterText }) => {
+const Filter = ({ filterText, onChange, count }) => {
+
   return (
     <div className="filter">
-      <span className="filter__count">5</span>
-      <input type="text" className="filter__input" value={filterText} />
+      <span className="filter__count">{count}</span>
+      <input onChange={onChange} type="text" className="filter__input" value={filterText} />
     </div>
   )
 }
 
 const mapState = (state) => {
+
   return {
     filterText: state.users.filterText,
-    usersList: state.users.UsersList,
+    usersList: state.users.usersList,
+    count: state.users.usersList.length,
   }
 }
 
-const connector = connect(mapState);
+const mapDispatch = {
+  onChange: handleChange,
+}
+
+const connector = connect(mapState, mapDispatch);
 const connectedFiler = connector(Filter);
 
 export default connectedFiler;
