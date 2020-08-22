@@ -5,7 +5,10 @@ import store from '../store';
 
 const UsersList = () => {
   return (
-    <User />
+
+    <ul className="users">
+      <User />
+    </ul>
   )
 }
 

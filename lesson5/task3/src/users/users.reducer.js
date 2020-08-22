@@ -58,7 +58,7 @@ const users = [
   },
 ];
 
-initialState = {
+const initialState = {
   filterText: '',
   usersList: users,
 }
