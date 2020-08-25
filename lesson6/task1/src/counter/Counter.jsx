@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { increment, decrement, reset } from './counter.actions';
 
-const Counter = () => {
+const Counter = ({ count }) => {
   return (
     <div className="counter">
       <button className="counter__button">
         -
       </button>
       <span className="counter__value">
-        17
+        {count}
       </span>
       <button className="counter__button">
         +
@@ -17,4 +18,19 @@ const Counter = () => {
   )
 }
 
-export default Counter;
+const mapState = (state) => {
+  return {
+    count: state.counter,
+  }
+}
+
+// const mapDispatch = {
+//   increment,
+//   decrement,
+//   reset,
+// }
+
+const connector = connect(mapState)
+const counterConnector = connector(Counter)
+
+export default counterConnector;
