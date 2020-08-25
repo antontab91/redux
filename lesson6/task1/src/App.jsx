@@ -1,8 +1,9 @@
 import React from 'react';
+import Counter from './counter/Counter';
 
 const App = () => {
     return (
-        <div className="">sdds</div>
+        <Counter />
     )
 }
 
