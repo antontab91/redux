@@ -1,26 +1,20 @@
-export const INCREMENT = 'COUNTER/INCREMENT';
-export const DECREMENT = 'COUNTER/DECREMENT';
-export const RESET = 'COUNTER/RESET';
-
-
-const increment = () => {
-  return {
-    type: INCREMENT,
-  }
-}
-const decrement = () => {
-  return {
-    type: DECREMENT,
-  }
-}
-const reset = () => {
-  return {
-    type: RESET,
-  }
-}
+export { INCREMENT, DECREMENT, RESET } from './counter.actions';
 
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
+
+    case INCREMENT: {
+      return state + 1
+    }
+
+    case DECREMENT: {
+      return state - 1
+    }
+
+    case RESET: {
+      return state = 0;
+    }
+
     default:
       return state;
   }
