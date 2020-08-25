@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { increment, decrement, reset } from './counter.actions';
+import { counterSelector } from './counter.selectors';
 
 const Counter = ({ count, increment, decrement, reset }) => {
   return (
@@ -20,7 +21,7 @@ const Counter = ({ count, increment, decrement, reset }) => {
 
 const mapState = (state) => {
   return {
-    count: state.counter,
+    count: counterSelector(state),
   }
 }
 
