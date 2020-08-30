@@ -1,7 +1,7 @@
 export const selectUserData = state => {
-  return state.userData;
+  return state.users.userData;
 }
 
 export const selectIsFetching = state => {
-  return state.userData;
+  return state.users.userData;
 }
