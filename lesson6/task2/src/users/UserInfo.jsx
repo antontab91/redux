@@ -3,26 +3,27 @@ import { connect } from 'react-redux';
 import { usersSelectors } from './users.selectors';
 import Spinner from './Spinner';
 
-const UserInfo = ({ userInfo }) => {
+const UserInfo = ({ userData }) => {
 
-  // if (!userInfo) {
-  //   return <Spinner />
-  // }
+  if (!userData) {
+    return <Spinner />
+  }
 
   return (
     <div className="user">
-      <img alt="User Avatar" src="https://avatars0.githubusercontent.com/u/10639145?v=4" className="user__avatar" />
+      <img alt="User Avatar" src={userData.avatar_url} className="user__avatar" />
       <div className="user__info">
-        <span className="user__name">Apple</span>
-        <span className="user__location">Cupertino, CA</span>
+        <span className="user__name">{userData.name}</span>
+        <span className="user__location">{userData.location}</span>
       </div>
     </div>
   )
 }
 
 const mapState = state => {
+  console.log(usersSelectors(state))
   return {
-    userInfo: usersSelectors(state),
+    userData: usersSelectors(state),
   }
 }
 
