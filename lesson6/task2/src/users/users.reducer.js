@@ -1,7 +1,7 @@
 import { GET_USER_RECIVED, SHOW_SPINNER, HIDE_SPINNER } from './user.actions';
 
 const initialState = {
-  isFetching: false,
+  isFetching: true,
   userData: null,
 }
 

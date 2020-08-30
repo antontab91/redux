@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { usersSelectors } from './users.selectors';
+import * as usersSelectors from './users.selectors';
 import Spinner from './Spinner';
 
-const UserInfo = ({ userData }) => {
+const UserInfo = ({ userData, isFetching }) => {
 
   if (!userData) {
     return null
+  }
+  if (isFetching) {
+    return <Spinner />
   }
 
   return (
@@ -22,7 +25,8 @@ const UserInfo = ({ userData }) => {
 
 const mapState = state => {
   return {
-    userData: usersSelectors(state),
+    userData: usersSelectors.selectUserData(state),
+    isFetching: usersSelectors.selectIsFetching(state),
   }
 }
 
