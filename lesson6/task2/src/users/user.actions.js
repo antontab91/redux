@@ -15,7 +15,7 @@ export const hideSpinner = () => {
   return {
     type: HIDE_SPINNER,
     payload: {
-      showSpinner: true,
+      showSpinner: false,
     }
   }
 }
