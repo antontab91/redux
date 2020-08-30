@@ -1,4 +1,4 @@
-import { GET_USER_DATA, SHOW_SPINNER, HIDE_SPINNER } from './user.actions';
+import { GET_USER_RECIVED, SHOW_SPINNER, HIDE_SPINNER } from './user.actions';
 
 const initialState = {
   showSpinner: false,
@@ -23,7 +23,7 @@ const usersReducer = (state = initialState, action) => {
       }
     }
 
-    case GET_USER_DATA: {
+    case GET_USER_RECIVED: {
       return {
         ...state,
         userData: action.payload.userData,

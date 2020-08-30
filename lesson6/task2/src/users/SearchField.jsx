@@ -10,26 +10,26 @@ class SearchField extends React.Component {
     super(props);
 
     this.state = {
-      userData: '',
+      userName: '',
     }
   }
 
   handleChange = (e) => {
     this.setState({
-      userData: e.target.value,
+      userName: e.target.value,
     })
   }
 
   onSubmitForm = (e) => {
-    // e.preventDefault();
-    getUserData(this.state.userData)
+    getUserData(this.state.userName)
       .then((userData) => {
-        console.log(userData)
-        return userData;
+        this.props.userDataRecived(userData);
+        // return userData;
       })
   }
 
   render() {
+
     return (
       <div className="name-form" >
         <input type="text" className="name-form__input" onChange={this.handleChange} value={this.state.userData} />
@@ -39,11 +39,14 @@ class SearchField extends React.Component {
   }
 }
 
-const mapDispatch  {
-
+const mapDispatch = {
+  showSpinner: usersActions.showSpinner,
+  hideSpinner: usersActions.hideSpinner,
+  userDataRecived: usersActions.userDataRecived,
 }
 
 
 const connector = connect(null, mapDispatch)
+const connectedSearchField = connector(SearchField);
 
-export default SearchField;
+export default connectedSearchField;
