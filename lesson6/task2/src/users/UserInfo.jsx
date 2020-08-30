@@ -5,11 +5,12 @@ import Spinner from './Spinner';
 
 const UserInfo = ({ userData, isFetching }) => {
 
-  if (!userData) {
-    return null
-  }
   if (isFetching) {
     return <Spinner />
+  }
+
+  if (!userData) {
+    return null
   }
 
   return (

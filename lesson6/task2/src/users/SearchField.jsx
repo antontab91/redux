@@ -25,8 +25,6 @@ class SearchField extends React.Component {
     getUserData(this.state.userName)
       .then((userData) => {
         this.props.userDataRecived(userData);
-
-        // return userData;
       })
   }
 
@@ -34,8 +32,13 @@ class SearchField extends React.Component {
 
     return (
       <div className="name-form" >
-        <input type="text" className="name-form__input" onChange={this.handleChange} value={this.state.userData} />
-        <button onClick={() => { this.handleUserSearch() }} className="name-form__btn btn">Show</button>
+        <input type="text"
+          className="name-form__input"
+          onChange={this.handleChange}
+          value={this.state.userData} />
+        <button
+          onClick={() => { this.handleUserSearch() }}
+          className="name-form__btn btn">Show</button>
       </div>
     )
   }
@@ -43,7 +46,6 @@ class SearchField extends React.Component {
 
 const mapDispatch = {
   showSpinner: usersActions.showSpinner,
-  hideSpinner: usersActions.hideSpinner,
   userDataRecived: usersActions.userDataRecived,
 }
 

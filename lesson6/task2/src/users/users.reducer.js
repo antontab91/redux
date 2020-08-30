@@ -12,21 +12,16 @@ const usersReducer = (state = initialState, action) => {
     case SHOW_SPINNER: {
       return {
         ...state,
-        isFetching: action.payload.isFetching,
+        isFetching: true,
       }
     }
 
-    case HIDE_SPINNER: {
-      return {
-        ...state,
-        isFetching: action.payload.isFetching,
-      }
-    }
 
     case GET_USER_RECIVED: {
       return {
         ...state,
         userData: action.payload.userData,
+        isFetching: false,
       }
     }
 
