@@ -7,15 +7,13 @@ import store from './store';
 
 const App = () => {
   return (
-    <div className="page">
-      <Provider store={store}>
+    <Provider store={store}>
+      <div className="page">
         <UserInfo />
         <SearchField />
-      </Provider>
-      {/* <!-- UserInfo --> */}
-      {/* <!-- Spinner --> */}
-      {/* <!-- SearchField --> */}
-    </div>
+
+      </div>
+    </Provider>
   )
 }
 
