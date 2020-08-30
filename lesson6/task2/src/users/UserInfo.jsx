@@ -5,8 +5,6 @@ import Spinner from './Spinner';
 
 const UserInfo = ({ userData, isFetching }) => {
 
-
-
   if (isFetching) {
     return <Spinner />;
   }
@@ -31,7 +29,9 @@ const mapState = state => {
   }
 }
 
-const connector = connect(mapState, null);
-const connectedUserInfo = connector(UserInfo);
+// const connector = connect(mapState, null);
+// const connectedUserInfo = connector(UserInfo);
 
-export default connectedUserInfo;
+// export default connectedUserInfo;
+
+export default connect(mapState, null)(UserInfo)
