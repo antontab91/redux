@@ -20,7 +20,7 @@ class SearchField extends React.Component {
     })
   }
 
-  onSubmitForm = () => {
+  handleUserSearch = () => {
     this.props.showSpinner()
     getUserData(this.state.userName)
       .then((userData) => {
@@ -35,7 +35,7 @@ class SearchField extends React.Component {
     return (
       <div className="name-form" >
         <input type="text" className="name-form__input" onChange={this.handleChange} value={this.state.userData} />
-        <button onClick={() => { this.onSubmitForm() }} className="name-form__btn btn">Show</button>
+        <button onClick={() => { this.handleUserSearch() }} className="name-form__btn btn">Show</button>
       </div>
     )
   }
