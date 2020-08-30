@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { usersSelectors } from './users.selectors';
+import Spinner from './Spinner';
 
 const UserInfo = ({ userInfo }) => {
 
-  console.log(userInfo)
+  // if (!userInfo) {
+  //   return <Spinner />
+  // }
 
   return (
     <div className="user">
