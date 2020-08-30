@@ -1,8 +1,8 @@
-const SHOW_SPINNER = 'USERS/SHOW_SPINNER';
-const HIDE_SPINNER = 'USERS/HIDE_SPINNER';
-const GET_USER_DATA = 'USERS/GET_USER_DATA';
+export const SHOW_SPINNER = 'USERS/SHOW_SPINNER';
+export const HIDE_SPINNER = 'USERS/HIDE_SPINNER';
+export const GET_USER_DATA = 'USERS/GET_USER_DATA';
 
-const showSpinner = () => {
+export const showSpinner = () => {
   return {
     type: SHOW_SPINNER,
     payload: {
@@ -11,7 +11,7 @@ const showSpinner = () => {
   }
 }
 
-const hideSpinner = () => {
+export const hideSpinner = () => {
   return {
     type: HIDE_SPINNER,
     payload: {
@@ -20,7 +20,7 @@ const hideSpinner = () => {
   }
 }
 
-const getUserData = (userData) => {
+export const getUserData = (userData) => {
   return {
     type: GET_USER_DATA,
     payload: {
