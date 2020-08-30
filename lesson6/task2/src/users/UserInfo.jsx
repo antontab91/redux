@@ -6,7 +6,7 @@ import Spinner from './Spinner';
 const UserInfo = ({ userData }) => {
 
   if (!userData) {
-    return <Spinner />
+    return null
   }
 
   return (

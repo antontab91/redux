@@ -1,7 +1,7 @@
 import { GET_USER_RECIVED, SHOW_SPINNER, HIDE_SPINNER } from './user.actions';
 
 const initialState = {
-  showSpinner: false,
+  isFetching: false,
   userData: null,
 }
 
@@ -12,14 +12,14 @@ const usersReducer = (state = initialState, action) => {
     case SHOW_SPINNER: {
       return {
         ...state,
-        showSpinner: action.payload.showSpinner,
+        isFetching: action.payload.isFetching,
       }
     }
 
     case HIDE_SPINNER: {
       return {
         ...state,
-        showSpinner: action.payload.showSpinner,
+        isFetching: action.payload.isFetching,
       }
     }
 

@@ -6,7 +6,7 @@ export const showSpinner = () => {
   return {
     type: SHOW_SPINNER,
     payload: {
-      showSpinner: true,
+      isFetching: true,
     }
   }
 }
@@ -15,7 +15,7 @@ export const hideSpinner = () => {
   return {
     type: HIDE_SPINNER,
     payload: {
-      showSpinner: false,
+      isFetching: false,
     }
   }
 }
