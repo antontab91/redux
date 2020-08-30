@@ -1,6 +1,8 @@
 import React from 'react';
 import getUserData from './users.gateway';
 import { connect } from 'react-redux';
+import * as usersActions from './user.actions';
+
 
 class SearchField extends React.Component {
 
@@ -36,5 +38,12 @@ class SearchField extends React.Component {
     )
   }
 }
+
+const mapDispatch  {
+
+}
+
+
+const connector = connect(null, mapDispatch)
 
 export default SearchField;
