@@ -21,7 +21,6 @@ const UserInfo = ({ userData }) => {
 }
 
 const mapState = state => {
-  console.log(usersSelectors(state))
   return {
     userData: usersSelectors(state),
   }

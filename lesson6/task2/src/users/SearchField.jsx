@@ -20,7 +20,7 @@ class SearchField extends React.Component {
     })
   }
 
-  onSubmitForm = (e) => {
+  onSubmitForm = () => {
     getUserData(this.state.userName)
       .then((userData) => {
         this.props.userDataRecived(userData);
