@@ -5,13 +5,13 @@ import Spinner from './Spinner';
 
 const UserInfo = ({ userData, isFetching }) => {
 
+
+
   if (isFetching) {
-    return <Spinner />
+    return <Spinner />;
   }
 
-  if (!userData) {
-    return null
-  }
+  if (!userData) return null;
 
   return (
     <div className="user">
@@ -31,7 +31,7 @@ const mapState = state => {
   }
 }
 
-const connector = connect(mapState);
+const connector = connect(mapState, null);
 const connectedUserInfo = connector(UserInfo);
 
 export default connectedUserInfo;
