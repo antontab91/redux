@@ -11,7 +11,6 @@ const App = () => {
       <div className="page">
         <UserInfo />
         <SearchField />
-
       </div>
     </Provider>
   )

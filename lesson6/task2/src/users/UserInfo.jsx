@@ -22,12 +22,15 @@ const UserInfo = ({ userData, isFetching }) => {
   )
 }
 
+
 const mapState = state => {
   return {
     userData: usersSelectors.selectUserData(state),
     isFetching: usersSelectors.selectIsFetching(state),
   }
 }
+
+
 
 // const connector = connect(mapState, null);
 // const connectedUserInfo = connector(UserInfo);

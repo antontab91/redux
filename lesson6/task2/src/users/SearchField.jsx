@@ -35,7 +35,7 @@ class SearchField extends React.Component {
         <input type="text"
           className="name-form__input"
           onChange={this.handleChange}
-          value={this.state.userData} />
+          value={this.state.userName} />
         <button
           onClick={() => { this.handleUserSearch() }}
           className="name-form__btn btn">Show</button>

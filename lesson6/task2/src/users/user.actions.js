@@ -14,7 +14,7 @@ export const userDataRecived = (userData) => {
   return {
     type: GET_USER_RECIVED,
     payload: {
-      userData: userData,
+      userData,
     }
   }
 }
