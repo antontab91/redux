@@ -29,4 +29,6 @@ class Weather extends React.Component {
   }
 }
 
+const connector = connect(mapState, mapDispatch);
+
 export default Weather;
