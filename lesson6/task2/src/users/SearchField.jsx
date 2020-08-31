@@ -21,11 +21,13 @@ class SearchField extends React.Component {
   }
 
   handleUserSearch = () => {
-    this.props.showSpinner()
-    getUserData(this.state.userName)
-      .then((userData) => {
-        this.props.userDataRecived(userData);
-      })
+    // this.props.showSpinner()
+    // getUserData(this.state.userName)
+    //   .then((userData) => {
+    //     this.props.userDataRecived(userData);
+    //   })
+
+    this.props.fetchUserData(this.state.userName);
   }
 
   render() {
@@ -45,8 +47,9 @@ class SearchField extends React.Component {
 }
 
 const mapDispatch = {
-  showSpinner: usersActions.showSpinner,
-  userDataRecived: usersActions.userDataRecived,
+  // showSpinner: usersActions.showSpinner,
+  // userDataRecived: usersActions.userDataRecived,
+  fetchUserData: usersActions.fetchUserData,
 }
 
 
