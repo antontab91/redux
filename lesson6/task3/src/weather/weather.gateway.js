@@ -10,3 +10,5 @@ export const getWetherData = () => {
     })
 }
 
+console.log(getWetherData())
+

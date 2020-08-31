@@ -1,8 +1,15 @@
 import React from 'react';
+import Weather from './weather/Weather';
+import store from './store';
+import { Provider } from 'react-redux';
+
+
 
 const App = () => {
   return (
-    <div className="">hello world</div>
+    <Provider store={store}>
+      <Weather />
+    </Provider>
   )
 }
 
