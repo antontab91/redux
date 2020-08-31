@@ -6,6 +6,9 @@ class Weather extends React.Component {
     super(props);
   }
   render() {
+
+    console.log(this.props.weatherData)
+
     return (
       <main className="weather">
         <h1 className="weather__title">Weather data</h1>
@@ -29,6 +32,14 @@ class Weather extends React.Component {
   }
 }
 
-const connector = connect(mapState, mapDispatch);
+const mapState = (state) => {
+  return {
+    weatherData: state.weather.weatherData,
+  }
+}
 
-export default Weather;
+const connector = connect(mapState);
+const connectedWeather = connector(Weather);
+
+
+export default connectedWeather;
