@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { fetchWeatherData } from './weather.actions';
+import { getWeatherData } from './weather.actions';
 import { useEffect } from 'react';
 
-const Weather = ({ state, fetchWeatherData }) => {
+const Weather = ({ state, getWeatherData }) => {
   useEffect(() => {
-    fetchWeatherData()
+    getWeatherData()
   }, []);
 
   console.log(state);
@@ -36,7 +36,7 @@ const mapState = state => {
 }
 
 const mapDispatch = {
-  fetchWeatherData,
+  getWeatherData,
 }
 
 const connector = connect(mapState, mapDispatch);
